@@ -17,8 +17,9 @@
             if (link == "HLPLatestLive") {
                 window.location = "/data/hlp/releases/latest/live/";
             } else if (link == "HRCLatestRelease") {
-                $('#var_HRCLatestVersion').load("/data/hrc/releases/latest/version.txt");
-                window.location = "/data/hrc/releases/release_" + document.getElementById('var_HRCLatestVersion').innerText + ".7z";
+                $('#var_hrclatest').load("/data/hrc/releases/latest/version.txt");
+                setTimeout(() => window.location = "/data/hrc/releases/release_" + document.getElementById('var_hrclatest').innerText + ".7z", 600);
+                // window.location = "/data/hrc/releases/release_" + document.getElementById('var_hrclatest').innerText + ".7z";
             } else {
                 window.location = "/data/hlp/releases/latest/live/";
             }
@@ -32,7 +33,7 @@
 </head>
 
 <body>
-    <div id="var_HRCLatestVersion" style="display: none;"></div>
+    <div id="var_hrclatest" style="display: none;"></div>
 </body>
 
 </html>
