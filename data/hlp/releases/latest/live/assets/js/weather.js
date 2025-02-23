@@ -48,6 +48,6 @@ function refresh_display() {
         $("#notify-debug1").css("background-color", "rgba(253, 255, 106, 0.15)");
     }
 }
-setTimeout(() => get_weather(), 100);
+setTimeout(() => get_weather(), 500);
 setInterval(get_weather, 300000);
 setInterval(refresh_display, 1000);
