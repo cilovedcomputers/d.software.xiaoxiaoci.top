@@ -3,37 +3,39 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="小小辞儿,xiaoxiaoci,,应用中心">
-    <meta name="description" content="小小辞儿の软件中心">
+    <meta name="keywords" content="小小辞儿,xiaoxiaoci,应用数据,应用中心">
+    <meta name="description" content="小小辞儿の软件数据站">
     <meta name="author" content="小小辞儿 (Yuxin Wang)">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="/assets/js/jquery.min.js"></script>
     <!-- <script src="js/jquery.params.js"></script> -->
-    <title>跳转中……</title>
+    <title>跳转中…… | 小小辞の软件中心</title>
     <script>
         var url, link;
-        $(function () {
-            getData();
-            if (link == "HLPLatestLive") {
-                window.location = "/data/hlp/releases/latest/live/";
-            } else if (link == "HRCLatestRelease") {
-                $('#var_hrclatest').load("/data/hrc/releases/latest/version.txt");
-                setTimeout(() => window.location = "/data/hrc/releases/release_" + document.getElementById('var_hrclatest').innerText + ".7z", 600);
-                // window.location = "/data/hrc/releases/release_" + document.getElementById('var_hrclatest').innerText + ".7z";
-            } else {
-                window.location = "/data/hlp/releases/latest/live/";
-            }
-        });
         function getData() {
             url = new URL(window.location.href);
             link = url.searchParams.get('link');
             console.log(link);
         }
+        $(function () {
+            getData();
+            if (link == "HLPLatestLive") {
+                window.location = "https://panel.live.software.xiaoxiaoci.top/";
+            } else if (link == "HRCLatestRelease") {
+                $.get('data/hrc/releases/latest/version.txt', function (data) {
+                    window.location = "/data/hrc/releases/release_" + data + ".7z"
+                });
+                // setTimeout(() => , 600);
+                // window.location = "/data/hrc/releases/release_" + document.getElementById('var_hrclatest').innerText + ".7z";
+            } else {
+                window.location = "https://software.xiaoxiaoci.top/";
+            }
+        });
     </script>
 </head>
 
 <body>
-    <div id="var_hrclatest" style="display: none;"></div>
+    <!-- <div id="var_hrclatest" style="display: none;"></div> -->
 </body>
 
 </html>
