@@ -24,6 +24,7 @@
             } else if (link == "HRCLatestRelease") {
                 $.get('data/hrc/releases/latest/version.txt', function (data) {
                     window.location = "/data/hrc/releases/release_" + data + ".7z"
+                    window.history.back();
                 });
                 // setTimeout(() => , 600);
                 // window.location = "/data/hrc/releases/release_" + document.getElementById('var_hrclatest').innerText + ".7z";
